@@ -22,9 +22,9 @@ from accounts.views import login, register, logout
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', get_index),
-    url(r'^accounts/login$', login),
-    url(r'^accounts/register$', register),
-    url(r'^accounts/logout$', logout),
+    url(r'^accounts/login$', login, name='login'),
+    url(r'^accounts/register$', register, name='register'),
+    url(r'^accounts/logout$', logout, name='logout'),
 ]
 
 # r - stands for regular expression
