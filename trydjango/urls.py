@@ -17,13 +17,14 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from home.views import get_index
-from accounts.views import login, register
+from accounts.views import login, register, logout
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', get_index),
     url(r'^accounts/login$', login),
     url(r'^accounts/register$', register),
+    url(r'^accounts/logout$', logout),
 ]
 
 # r - stands for regular expression
