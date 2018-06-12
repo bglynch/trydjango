@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import auth
 from django.contrib.auth import authenticate
-from .forms import UserLoginForm
+from .forms import UserLoginForm, UserRegistrationForm
 
 # Create your views here.
 def login(request):
@@ -21,7 +21,8 @@ def login(request):
         return render(request, 'accounts/login.html', {'form': login_form})
 
 def register(request):
-    return render(request, 'accounts/register.html')
+    registration_form = UserRegistrationForm()  #..........creates an empty form
+    return render(request, 'accounts/register.html', {'form': registration_form})
 
 def logout(request):
     # return HttpResponse('Do you want to logout')
