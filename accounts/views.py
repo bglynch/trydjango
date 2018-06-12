@@ -23,9 +23,27 @@ def login(request):
 
     return render(request, 'accounts/login.html', {'form': login_form})
 
+
 def register(request):
-    registration_form = UserRegistrationForm()  #..........creates an empty form
+    if request.method=="POST":
+        registration_form = UserRegistrationForm(request.POST)
+        if registration_form.is_valid():
+            registration_form.save()
+            
+            u = registration_form.cleaned_data['username']
+            p = registration_form.cleaned_data['password1']
+            user = authenticate(username=u, password=p)
+            
+            if user is not None:
+                auth.login(request, user)
+                return redirect("/")
+            else:
+                registration_form.add_error(None, "Can't log in now, try later.")
+    else:
+        registration_form = UserRegistrationForm()
+    
     return render(request, 'accounts/register.html', {'form': registration_form})
+
 
 def logout(request):
     # return HttpResponse('Do you want to logout')
