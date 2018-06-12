@@ -4,7 +4,6 @@
 {% block content %}
 
 <h3>Login</h3>
-
 <form method='POST'>
     {% csrf_token %}
     {{ form | as_bootstrap }}

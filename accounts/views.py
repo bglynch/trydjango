@@ -49,5 +49,9 @@ def logout(request):
     # return HttpResponse('Do you want to logout')
     auth.logout(request)
     return redirect('/')
-    
+
+def profile(request):
+    return render(request, 'accounts/profile.html')
+
+  
     
