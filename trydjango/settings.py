@@ -61,10 +61,10 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.debug',             #info about state of the app
+                'django.template.context_processors.request',           # http request object
+                'django.contrib.auth.context_processors.auth',          # info about the user
+                'django.contrib.messages.context_processors.messages',  # flash messages 
             ],
         },
     },
